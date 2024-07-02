@@ -69,7 +69,9 @@ cd ${UMT_DIR}
 
 4) Download the Dockerfile and build it:
 ```sh
-wget https://raw.githubusercontent.com/nathanrooy/rpi-urban-mobility-tracker/master/Dockerfile
+wget https://raw.githubusercontent.com/philipph832/rpi-UMT-ph/master/Dockerfile
+```
+```sh
 
 docker build . -t umt
 ```
@@ -82,7 +84,8 @@ docker run --rm -it --privileged --mount type=bind,src=${UMT_DIR},dst=/root umt
 6) Test install by downloading a video and running the tracker:
 ```sh
 wget https://github.com/nathanrooy/rpi-urban-mobility-tracker/raw/master/data/videos/highway_01.mp4
-
+````
+```sh
 umt -video highway_01.mp4
 ```
 If everything worked correctly, you should see a directory labeled `output` filled with 10 annotated video frames.
