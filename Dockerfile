@@ -70,8 +70,8 @@ RUN apt-get install -y python3-opencv python3-libcamera python3-kms++ python3-pi
 ADD requirements.txt .
 RUN pip3 install -r requirements.txt
 # install umt
-#RUN pip3 install git+https://github.com/nathanrooy/rpi-urban-mobility-tracker --no-deps
-RUN pip3 install git+https://github.com/philipph832/rpi-UMT-ph --no-deps
+RUN pip3 install git+https://github.com/nathanrooy/rpi-urban-mobility-tracker --no-deps
+#RUN pip3 install git+https://github.com/philipph832/rpi-UMT-ph --no-deps
 RUN sed -i 's/f"net\//f"/g' /usr/local/lib/python3.9/dist-packages/deep_sort_tools/generate_detections.py
 RUN sed -i 's/^import tflite_runtime.interpreter/import tensorflow.lite/' /usr/local/lib/python3.9/dist-packages/umt/umt_utils.py
 #RUN sed -i 's/^from imutils.video import VideoStream/from imutils.video.strmpilibcam import CamStream as VideoStream/' /usr/local/lib/python3.9/dist-packages/umt/umt_utils.py
