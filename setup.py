@@ -11,7 +11,7 @@ setup(
     version='0.0.2',
     author='Nathan A. Rooy',
     author_email='nathanrooy@gmail.com',
-    url='https://github.com/nathanrooy/rpi-urban-mobility-tracker',
+    url='https://github.com/philipph832/rpi-UMT-ph',
     description='The easiest way to count pedestrians, cyclists, and vehicles on edge computing devices.',
     long_description=long_description,
     long_description_content_type="text/markdown",
