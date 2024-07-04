@@ -39,7 +39,7 @@ def camera_frame_gen(args):
         frame = vs.read()
 
         # array to PIL image format
-        #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frame = cv2.cvtColor(frame) #, cv2.COLOR_BGR2RGB)
         yield Image.fromarray(frame)
 
     pass
