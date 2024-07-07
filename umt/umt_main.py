@@ -79,7 +79,6 @@ def main():
         for i, pil_img in enumerate(img_generator(args)):
         
             f_time = int(time.time())
-	    #timeastime=datetime(time.time())#datetime ="real time"
             print('> FRAME:', i)
             
             # add header to trajectory file
