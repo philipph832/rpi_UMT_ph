@@ -30,20 +30,28 @@ def camera_frame_gen(args):
 
     # initialize the video stream and allow the camera sensor to warmup
     print("> starting video stream...")
-    vs = VideoStream(src=0).start()
-    sleep(2.0)
+    #vs = VideoStream(src=0).start()
+    #sleep(2.0)
 
     # loop over the frames from the video stream
-    while True:
+    #while True:
         # pull frame from video stream
-        frame = vs.read()
+        #frame = vs.read()
 
         # array to PIL image format
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        yield Image.fromarray(frame)
+        #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        #yield Image.fromarray(frame)
 
-    pass
+    #pass
 
+    vs = cv2.VideoCapture(0)
+    while True:
+        ret,frame=vs.read()
+        ret, jpeg = cv2.imencode('.jpg', frame)
+        frame=jpeg.tobytes()
+        yield (b'--frame\r\n'
+        b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+pass
 
 def image_seq_gen(args):
 
