@@ -35,7 +35,7 @@ def camera_frame_gen(args):
     #sleep(2.0)
 
     # loop over the frames from the video stream
-    #hile True:
+    while True:
         # pull frame from video stream
         frame = vs.read()
 
