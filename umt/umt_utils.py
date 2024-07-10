@@ -24,7 +24,8 @@ nms_max_overlap = 1.0
 # initialize an instance of the deep-sort tracker
 w_path = os.path.join(os.path.dirname(__file__), 'deep_sort/mars-small128.pb')
 encoder = gd.create_box_encoder(w_path, batch_size=1)
-    
+
+print('this is a test')
 
 def camera_frame_gen(args):
 
