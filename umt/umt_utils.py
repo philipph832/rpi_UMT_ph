@@ -25,7 +25,7 @@ nms_max_overlap = 1.0
 w_path = os.path.join(os.path.dirname(__file__), 'deep_sort/mars-small128.pb')
 encoder = gd.create_box_encoder(w_path, batch_size=1)
 
-print('this is a new test')
+print('this is a new test - again')
 
 def camera_frame_gen(args):
 
@@ -33,12 +33,12 @@ def camera_frame_gen(args):
     print("> starting video stream...")
     vs = VideoStream(src=0).start()
     sleep(2.0)
-
+    print('hallo')
     # loop over the frames from the video stream
     while True:
         # pull frame from video stream
         frame = vs.read()
-	print('hallo')
+	
         # array to PIL image format
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         yield Image.fromarray(frame)
