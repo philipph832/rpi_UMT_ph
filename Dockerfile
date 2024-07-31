@@ -74,9 +74,9 @@ RUN pip3 install -r requirements.txt
 RUN pip3 install git+https://github.com/philipph832/rpi_UMT_ph --no-deps
 RUN sed -i 's/f"net\//f"/g' /usr/local/lib/python3.9/dist-packages/deep_sort_tools/generate_detections.py
 RUN sed -i 's/^import tflite_runtime.interpreter/import tensorflow.lite/' /usr/local/lib/python3.9/dist-packages/umt/umt_utils.py
-#RUN sed -i 's/^from imutils.video import VideoStream/from imutils.video.strmpilibcam import CamStream as VideoStream/' /usr/local/lib/python3.9/dist-packages/umt/umt_utils.py
-#RUN wget -O /usr/local/lib/python3.9/dist-packages/imutils/video/strmpilibcam.py https://raw.githubusercontent.com/pageauc/MoTrack-Picam2-Demo/master/strmpilibcam.py
-#RUN sed -i -r 's/hflip=False\):/hflip=False,src=None\):/' /usr/local/lib/python3.9/dist-packages/imutils/video/strmpilibcam.py 
+RUN sed -i 's/^from imutils.video import VideoStream/from imutils.video.strmpilibcam import CamStream as VideoStream/' /usr/local/lib/python3.9/dist-packages/umt/umt_utils.py
+RUN wget -O /usr/local/lib/python3.9/dist-packages/imutils/video/strmpilibcam.py https://raw.githubusercontent.com/pageauc/MoTrack-Picam2-Demo/master/strmpilibcam.py
+RUN sed -i -r 's/hflip=False\):/hflip=False,src=None\):/' /usr/local/lib/python3.9/dist-packages/imutils/video/strmpilibcam.py 
 RUN sed -i 's/np\.int/int/g' /usr/local/lib/python3.9/dist-packages/deep_sort_tools/generate_detections.py
 RUN sed -i -r 's/np\.float\)/np.float32\)/g' /usr/local/lib/python3.9/dist-packages/deep_sort/detection.py
 RUN sed -i -r 's/np\.float\)/np.float32\)/g' /usr/local/lib/python3.9/dist-packages/umt/umt_utils.py
