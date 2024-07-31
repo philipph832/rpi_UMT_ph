@@ -38,7 +38,7 @@ def camera_frame_gen(args):
     while True:
         # pull frame from video stream
         frame = vs.read()
-
+	print('hallo')
         # array to PIL image format
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         yield Image.fromarray(frame)
