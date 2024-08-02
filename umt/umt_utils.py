@@ -104,6 +104,8 @@ def initialize_img_source(args):
     # track objects from camera source
     if args.camera: return camera_frame_gen
 
+    if args.cam: return camera_gen_test
+
 
 def initialize_detector(args):
 
