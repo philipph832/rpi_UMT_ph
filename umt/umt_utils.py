@@ -43,16 +43,7 @@ def camera_frame_gen(args):
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         yield Image.fromarray(frame)
 
-    #pass
-
-    vs = cv2.VideoCapture(0)
-    #while True:
-     #   ret,frame=vs.read()
-      #  ret, jpeg = cv2.imencode('.jpg', frame)
-       # frame=jpeg.tobytes()
-        #yield (b'--frame\r\n'
-        #b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')0
-#pass
+    pass
 
 def image_seq_gen(args):
 
