@@ -10,6 +10,8 @@ from scipy.spatial.distance import cosine
 import imutils
 from imutils.video import VideoStream
 
+import picamera
+
 # deep sort
 #from umt.deep_sort import generate_detections as gd
 #from umt.deep_sort.detection import Detection
@@ -46,6 +48,8 @@ def camera_frame_gen(args):
     pass
 	
 def camera_gen_test(args):
+    # Initialize the PiCamera object
+    camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(100, 100, 400, 300))  # Adjust window size for preview
     time.sleep(2.0)
     camera.stop_preview()
