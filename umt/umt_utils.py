@@ -72,6 +72,25 @@ def video_frame_gen(args):
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
         yield Image.fromarray(frame)
+	    
+def camera_gen_test(args):
+	camera.start_preview(fullscreen=False, window=(100, 100, 400, 300))  # Adjust window size for preview
+	time.sleep(2.0)
+	camera.stop_preview()
+
+	print("hallo")
+
+# Loop over frames captured by the PiCamera
+	while True:
+    # Capture a frame
+    		frame=camera.capture_continuous('image.jpg', format='bgr', use_video_port=True)
+    # Access the captured frame (implementation depends on your processing needs)
+    # You can access the raw image data, convert it to a NumPy array, etc.
+    # ... your frame processing code here ...
+        	frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        	yield Image.fromarray(frame)
+
+    	pass
 
 
 def initialize_img_source(args):
