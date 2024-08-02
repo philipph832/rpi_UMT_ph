@@ -32,7 +32,7 @@ def camera_frame_gen(args):
     # initialize the video stream and allow the camera sensor to warmup
     print("> starting video stream...")
     vs = VideoStream(src=0).start()
-    sleep(2.0)
+    sleep(10.0)
     print('hallo')
     # loop over the frames from the video stream
     while True:
@@ -44,7 +44,26 @@ def camera_frame_gen(args):
         yield Image.fromarray(frame)
 
     pass
+	
+def camera_gen_test(args):
+	camera.start_preview(fullscreen=False, window=(100, 100, 400, 300))  # Adjust window size for preview
+	time.sleep(2.0)
+	camera.stop_preview()
 
+	print("hallo")
+
+# Loop over frames captured by the PiCamera
+	while True:
+    # Capture a frame
+    		frame=camera.capture_continuous('image.jpg', format='bgr', use_video_port=True)
+    # Access the captured frame (implementation depends on your processing needs)
+    # You can access the raw image data, convert it to a NumPy array, etc.
+    # ... your frame processing code here ...
+        	frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        	yield Image.fromarray(frame)
+
+    	pass
+	
 def image_seq_gen(args):
 
     # collect images to be processed
@@ -73,24 +92,7 @@ def video_frame_gen(args):
 
         yield Image.fromarray(frame)
 	    
-def camera_gen_test(args):
-	camera.start_preview(fullscreen=False, window=(100, 100, 400, 300))  # Adjust window size for preview
-	time.sleep(2.0)
-	camera.stop_preview()
 
-	print("hallo")
-
-# Loop over frames captured by the PiCamera
-	while True:
-    # Capture a frame
-    		frame=camera.capture_continuous('image.jpg', format='bgr', use_video_port=True)
-    # Access the captured frame (implementation depends on your processing needs)
-    # You can access the raw image data, convert it to a NumPy array, etc.
-    # ... your frame processing code here ...
-        	frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        	yield Image.fromarray(frame)
-
-    	pass
 
 
 def initialize_img_source(args):
